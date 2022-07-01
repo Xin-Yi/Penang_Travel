@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/main_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="@color/main_orange">
+
+                    <ImageView
+                        android:id="@+id/imagePic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        app:srcCompat="@drawable/place_image" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="end">
+
+                    <ImageButton
+                        android:id="@+id/favorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_love_border" />
+
+                    <ImageButton
+                        android:id="@+id/share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_share" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="40dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/nameLogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_pencil" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/placeName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Place Name"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/name"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Name"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/addressLogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_address" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/addressName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Address"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/address"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Address"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/contactLogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_contact" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/contactName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Contact"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/contact"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Contact"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/descriptionLogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_description" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/descriptionName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Description"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/description"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Description"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="40dp"
+                    android:background="@drawable/bottom_textlines"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:id="@+id/areaName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="Area"
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/box_hintText"/>
+
+                    <TextView
+                        android:id="@+id/area"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Island"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp">
+
+                    <TextView
+                        android:id="@+id/festivalTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="12dp"
+                        android:background="@color/box_title"
+                        android:text="Festival Celebration"
+                        android:fontFamily="@font/lora"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/nearby_bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/festivalLogo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_festival" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/festivalName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Festival Description"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/festival"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Festival"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/foodTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="12dp"
+                        android:background="@color/box_title"
+                        android:text="Food"
+                        android:fontFamily="@font/lora"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/nearby_bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/foodLogo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_food" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/foodName1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Food's Place Name 1"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/food1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Food 1"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/nearby_bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/foodLogo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_food" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/foodName2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Food's Place Name 2"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/food2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Food 2"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/hotelTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="12dp"
+                        android:background="@color/box_title"
+                        android:text="Hotel"
+                        android:fontFamily="@font/lora"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/nearby_bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/hotelLogo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_hotel" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/hotelName1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Hotel's Place Name 1"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/hotel1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Hotel 1"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/nearby_bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/hotelLogo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_hotel" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/hotelName2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Hotel's Place Name 2"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/hotel2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Hotel 2"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/medicalTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="12dp"
+                        android:background="@color/box_title"
+                        android:text="Medical"
+                        android:fontFamily="@font/lora"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/nearby_bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/medicalLogo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_food" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/medicalName1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Medical's Place Name"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/medical1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Medical 1"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/transportTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="12dp"
+                        android:background="@color/box_title"
+                        android:text="Transport"
+                        android:fontFamily="@font/lora"
+                        android:textSize="23dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/nearby_bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/transportLogo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_transport" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/transportName1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Transport's Place Name 1"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/transport1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Transport 1"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/nearby_bottom_textlines"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:id="@+id/transportLogo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:padding="15dp"
+                            app:srcCompat="@drawable/ic_transport" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/transportName2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Transport's Place Name 2"
+                                android:textColor="@color/box_hintText"
+                                android:textStyle="bold"
+                                android:textSize="12dp"/>
+
+                            <TextView
+                                android:id="@+id/transport2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingBottom="10dp"
+                                android:text="Transport 2"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:textSize="18dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"></LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

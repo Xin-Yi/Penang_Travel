@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_address.xml" value="0.22037037037037038" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_camera.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_contact.xml" value="0.22037037037037038" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_delete.xml" value="0.22314814814814815" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_description.xml" value="0.22037037037037038" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_edit.xml" value="0.22314814814814815" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_love_border.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_love_full.xml" value="0.225" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_pencil.xml" value="0.22037037037037038" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_share.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_user.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable-anydpi/ic_view.xml" value="0.225" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/bottom_textlines.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/circle.xml" value="0.19074074074074074" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/edit_text_border.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/home_rounded_corner.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/img_circle_background.xml" value="0.19074074074074074" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/nearby_bottom_textlines.xml" value="0.14895833333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/rounded_button.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/rounded_text_view.xml" value="0.22407407407407406" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/drawable/search_border.xml" value="0.2703125" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/font/font.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/add_place.xml" value="0.16168478260869565" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/admin_list_item.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/favorite_list_item.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/load_admin_place.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/load_place_list.xml" value="0.1" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/notification.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/profile.xml" value="0.2171875" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/splash_screen.xml" value="0.1793478260869565" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/user_list_item.xml" value="0.16" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/PenangTravel/app/src/main/res/layout/user_view_place.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.1" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

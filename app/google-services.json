@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "665658314152",
+    "project_id": "penang-travel",
+    "storage_bucket": "penang-travel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665658314152:android:92ead5e0e0db127502a19d",
+        "android_client_info": {
+          "package_name": "com.example.penangtravel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "665658314152-8ec53idl9t5pubpv81on798c5fovi7qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOzO7644EwswWbnTxgVQS92ga23mXNpwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "665658314152-8ec53idl9t5pubpv81on798c5fovi7qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

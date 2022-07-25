@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class LoadUserPlace extends AppCompatActivity implements UserPlaceAdapter.UserClickListener {
     public final static String EXTRA_ID =
@@ -49,14 +50,17 @@ public class LoadUserPlace extends AppCompatActivity implements UserPlaceAdapter
         String option = load.getStringExtra(MainActivity.option);
         String placeName = load.getStringExtra(MainActivity.name);
 
+        //load list of island place
         if(option.equals("island")){
             Place.loadUserIslandPlace(mAdapter, places); //Load data for user place recycler view(Island)
         }
+        //load list of mainland place
         else if(option.equals("mainland")){
             Place.loadUserMainlandPlace(mAdapter, places); //Load data for user place recycler view(Mainland)
         }
-        else if(option.equals("search")){
-            Place.loadUserSearchPlace(mAdapter, places, placeName); //Load data for user place recycler view(Mainland)
+        //load list of search place
+        else{
+            Place.loadUserSearchPlace(mAdapter, places, placeName); //Load data for user place recycler view(Search)
         }
 
     }

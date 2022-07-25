@@ -47,7 +47,24 @@ public class LoadAdminPlace extends AppCompatActivity implements AdminPlaceAdapt
     protected void onStart() {
         super.onStart();
         places.clear(); //Clear the array list before adding new data in it
-        Place.loadPlace(mAdapter, places); //Load data for recycler view
+
+        //Load data for recycler view
+        Intent load = getIntent();
+        String option = load.getStringExtra(MainActivity.option);
+        String placeName = load.getStringExtra(MainActivity.name);
+
+        //load list of island place
+        if(option.equals("island")){
+            Place.loadAdminIslandPlace(mAdapter, places); //Load data for admin place recycler view(Island)
+        }
+        //load list of mainland place
+        else if(option.equals("mainland")){
+            Place.loadAdminMainlandPlace(mAdapter, places); //Load data for admin place recycler view(Mainland)
+        }
+        //load list of search place
+        else{
+            Place.loadAdminSearchPlace(mAdapter, places, placeName); //Load data for admin place recycler view(Search)
+        }
     }
 
     //When recycler view item is clicked
@@ -55,6 +72,7 @@ public class LoadAdminPlace extends AppCompatActivity implements AdminPlaceAdapt
     public void placeClicked(int position, int choice) {
         String id = places.get(position).getId(); //ID of item selected
 
+        //Delete place
         if (choice == 1) {
             place = Place.searchPlaceById(id);
 
@@ -72,7 +90,16 @@ public class LoadAdminPlace extends AppCompatActivity implements AdminPlaceAdapt
                     ref = FirebaseDatabase.getInstance().getReference("Place").child(place.getId());
                     ref.removeValue();
                     places.clear();
-                    Place.loadPlace(mAdapter, places); //Rerun the recycler view
+                    //Place.loadPlace(mAdapter, places); //Rerun the recycler view
+                    //Rerun the recycler view
+                    Intent load = getIntent();
+                    String option = load.getStringExtra(MainActivity.option);
+                    if(option.equals("island")){
+                        Place.loadAdminIslandPlace(mAdapter, places); //Load data for admin place recycler view(Island)
+                    }
+                    else if(option.equals("mainland")){
+                        Place.loadAdminMainlandPlace(mAdapter, places); //Load data for admin place recycler view(Mainland)
+                    }
                     Toast.makeText(LoadAdminPlace.this, "The place is deleted!", Toast.LENGTH_SHORT).show();
                 }
             });

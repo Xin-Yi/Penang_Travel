@@ -1,10 +1,13 @@
 package com.example.penangtravel;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,14 +17,22 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -36,17 +47,23 @@ public class AddPlace extends AppCompatActivity implements android.view.View.OnC
     private Button mAdd;
     private DatabaseReference ref;
 
-    private Uri uri; // Uri indicates, where the image will be picked from
-    private StorageReference storageRef;
-    private final int PICK_IMAGE_REQUEST = 1; //request code
+    FirebaseStorage storage;
+    Uri imageURI; //Take it as global
+    String downloadURL = "";
+
+//    private Uri uri; // Uri indicates, where the image will be picked from
+//    private StorageReference storageRef;
+//    private final int PICK_IMAGE_REQUEST = 1; //request code
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_place);
 
+        storage = FirebaseStorage.getInstance();
         mImagePic = findViewById(R.id.imagePic);
-        //mCamera = findViewById(R.id.camera);
+        mImagePic.setVisibility(View.GONE);
+        mCamera = findViewById(R.id.camera);
         mName = findViewById(R.id.name);
         mAddress = findViewById(R.id.address);
         mContact = findViewById(R.id.contact);
@@ -70,19 +87,33 @@ public class AddPlace extends AppCompatActivity implements android.view.View.OnC
 
         mAdd.setOnClickListener(this);
 
-
-//        mCamera.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                //Toast.makeText(AddPlace.this, "Select camera", Toast.LENGTH_SHORT).show();
-//                uploadPlaceImage();
-//            }
-//        });
+        //Allow admin to select image from device
+        mCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mGetContent.launch("image/*");
+            }
+        });
     }
+
+    //Start an activity for result
+    //Show the selected image
+    ActivityResultLauncher<String> mGetContent = registerForActivityResult(
+            new ActivityResultContracts.GetContent(),
+            new ActivityResultCallback<Uri>() {
+                @Override
+                public void onActivityResult(Uri result) {
+                    if(result != null){
+                        mImagePic.setVisibility(View.VISIBLE);
+                        mImagePic.setImageURI(result);
+                        imageURI = result; //Get and set the image URI
+                    }
+                }
+            }
+    );
 
     @Override
     public void onClick(android.view.View view) {
-        //Toast.makeText(AddPlace.this, "Click success", Toast.LENGTH_SHORT).show();
         //Get place details
         String name = mName.getEditText().getText().toString();
         String address = mAddress.getEditText().getText().toString();
@@ -107,11 +138,33 @@ public class AddPlace extends AppCompatActivity implements android.view.View.OnC
         }
 
         if(validate()){
-            //Push new place to database
-            Place place = new Place("", name, address, contact, description, area, festival,
-                    food1, food2, hotel1, hotel2, medical1, transport1, transport2, favorite);
-            ref = FirebaseDatabase.getInstance().getReference("Place");
-            ref.push().setValue(place);
+            //uploadImage
+            if(imageURI != null){
+                //Creating a reference to store the image in firebase storage (images folder)
+                StorageReference reference = storage.getReference().child("images/" + UUID.randomUUID().toString());
+
+                //Store the file
+                reference.putFile(imageURI).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        //get image downloadURL
+                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                downloadURL = uri.toString();
+                                Log.d(TAG, "onSuccess: uri= "+ downloadURL);
+
+                                //Push new place to database
+                                Place place = new Place("", downloadURL, name, address, contact, description, area, festival,
+                                        food1, food2, hotel1, hotel2, medical1, transport1, transport2, favorite);
+                                ref = FirebaseDatabase.getInstance().getReference("Place");
+                                ref.push().setValue(place);
+                            }
+                        });
+                    }
+                });
+            }
+
             Toast.makeText(this, "Place added successfully!", Toast.LENGTH_SHORT).show();
             //Place.place.clear();
             finish();
@@ -221,62 +274,4 @@ public class AddPlace extends AppCompatActivity implements android.view.View.OnC
 
         return true;
     }
-
-//    public void uploadPlaceImage(){
-//        //instance for firebase storage and StorageReference
-//        storageRef = FirebaseStorage.getInstance().getReference();
-//
-//        mCamera.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                selectImage();
-//            }
-//        });
-//
-//
-//    }
-//
-//    //Intent creates an image chooser dialog, allow user to browse through the device gallery to select the image
-//    private void selectImage(){
-//        Intent image = new Intent();
-//        image.setType("image/*");
-//        getIntent().setAction(Intent.ACTION_GET_CONTENT);
-//        //Received the selected image
-//        //startActivityForResult(Intent.createChooser(image,"Select image"), PICK_IMAGE_REQUEST);
-//        startActivityForResult(Intent.createChooser(image,"Select image"), PICK_IMAGE_REQUEST);
-//
-//    }
-//
-//    //Display the image
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        //Check if request code is PICK_IMAGE_REQUEST and resultCode is RESULT_OK
-//        //Then set image in the image view
-//        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-//                && data != null && data.getData() != null){
-//
-//            //Get the URI of data
-//
-//            try {
-//                //Setting image on image view using Bitmap
-//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-//                mImagePic.setImageBitmap(bitmap);
-//            }
-//
-//            catch (IOException e) {
-//                // Log the exception
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//
-//    private void uploadImage(){
-//        if(uri != null){
-//            //Define child of storageRef
-//            StorageReference ref = storageRef.child("images/" + UUID.randomUUID().toString());
-//
-//
-//        }
-//    }
 }

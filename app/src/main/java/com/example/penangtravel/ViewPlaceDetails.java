@@ -1,5 +1,6 @@
 package com.example.penangtravel;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class ViewPlaceDetails extends AppCompatActivity implements View.OnClickListener{
     private ImageView mImagePic;
@@ -62,6 +64,9 @@ public class ViewPlaceDetails extends AppCompatActivity implements View.OnClickL
             finish();
         }
 
+        //Get data
+        //Get the imageURL and display image
+        Picasso.get().load(place.getImageURL()).into(mImagePic);
         mName.setText(place.getName());
         mAddress.setText(place.getAddress());
         mContact.setText(place.getContact());

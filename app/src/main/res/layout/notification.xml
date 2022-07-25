@@ -8,7 +8,7 @@
     <WebView
         android:id="@+id/webWeather"
         android:layout_width="match_parent"
-        android:layout_height="415dp"
+        android:layout_height="400dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,13 +22,14 @@
         android:text="Today's Weather"
         android:textSize="28dp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="255dp"
+        android:layout_height="270dp"
         android:orientation="vertical"
         android:background="#ede1ce"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,6 +46,7 @@
             android:paddingBottom="8dp"
             android:text="Festival"
             android:fontFamily="@font/lora"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="28dp"/>
 
@@ -63,6 +65,25 @@
                     android:layout_height="match_parent" />
             </LinearLayout>
         </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/btmNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemBackground="@color/navi_blue"
+            app:itemTextColor="@drawable/selector"
+            app:itemIconTint="@drawable/selector"
+            app:menu="@menu/menu_navigation"
+            android:layout_alignParentBottom="true"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

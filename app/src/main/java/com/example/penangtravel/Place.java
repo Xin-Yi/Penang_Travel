@@ -14,14 +14,15 @@ import java.util.ArrayList;
 public class Place {
     public static ArrayList<Place> place = new ArrayList<>();
     private static DatabaseReference ref;
-    private String id;
+    private String id, imageURL;
     private String name, address, contact, description, area;
     private String festival, food1, food2, hotel1, hotel2, medical1, transport1, transport2;
     private String favorite;
 
-    public Place(String id, String name, String address, String contact, String description, String area, String festival, String food1,
+    public Place(String id, String imageURL, String name, String address, String contact, String description, String area, String festival, String food1,
                  String food2, String hotel1, String hotel2, String medical1, String transport1, String transport2, String favorite) {
         this.id = id;
+        this.imageURL = imageURL;
         this.name = name;
         this.address = address;
         this.contact = contact;
@@ -67,12 +68,45 @@ public class Place {
         return null;
     }
 
-    //Load the data for admin recycler view
-    public static void loadPlace(final AdminPlaceAdapter pa, final ArrayList<Place> plc) {
+    //Load the data for admin recycler view (Island)
+    public static void loadAdminIslandPlace(final AdminPlaceAdapter pa, final ArrayList<Place> plc) {
         place.clear();
         ref = FirebaseDatabase.getInstance().getReference("Place");
 
-        ref.orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.orderByChild("area").equalTo("Island").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                //Get all places, and set the unique key as ID
+                place.clear();
+                for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                    Place p = dsp.getValue(Place.class);
+                    p.setId(dsp.getKey());
+
+                    place.add(p);
+                }
+
+                for (Place places : place) {
+                    plc.add(places);
+                }
+
+                if (pa != null)
+                    pa.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    //Load the data for admin recycler view (Mainland)
+    public static void loadAdminMainlandPlace(final AdminPlaceAdapter pa, final ArrayList<Place> plc) {
+        place.clear();
+        ref = FirebaseDatabase.getInstance().getReference("Place");
+
+        ref.orderByChild("area").equalTo("Mainland").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -166,6 +200,41 @@ public class Place {
         });
     }
 
+    //Load the data for admin recycler view (Admin search keyword)
+    public static void loadAdminSearchPlace(final AdminPlaceAdapter pa, final ArrayList<Place> plc, final String name) {
+        place.clear();
+        ref = FirebaseDatabase.getInstance().getReference("Place");
+        Query query = ref.orderByChild("name").startAt(name).endAt(name + "\uf8ff");
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                //Get all places, and set the unique key as ID
+                place.clear();
+                for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                    Place p = dsp.getValue(Place.class);
+                    p.setId(dsp.getKey());
+
+                    place.add(p);
+                }
+
+                for (Place places : place) {
+                    plc.add(places);
+                }
+
+                if (pa != null)
+                    pa.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
     //Load the data for user recycler view (User search keyword)
     public static void loadUserSearchPlace(final UserPlaceAdapter pa, final ArrayList<Place> plc, final String name) {
         place.clear();
@@ -240,6 +309,14 @@ public class Place {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 
     public String getName() {

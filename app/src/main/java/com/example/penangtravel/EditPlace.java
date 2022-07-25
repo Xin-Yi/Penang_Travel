@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class EditPlace extends AppCompatActivity implements android.view.View.OnClickListener{
     private ImageView mImagePic;
@@ -63,6 +64,9 @@ public class EditPlace extends AppCompatActivity implements android.view.View.On
             finish();
         }
 
+        //Get data
+        //Get the imageURL and display image
+        Picasso.get().load(place.getImageURL()).into(mImagePic);
         mName.getEditText().setText(place.getName());
         mAddress.getEditText().setText(place.getAddress());
         mContact.getEditText().setText(place.getContact());
